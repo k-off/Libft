@@ -13,17 +13,17 @@
 #include "libft.h"
 #include <stdio.h>
 
-static void		check_sign(char **str, int *sign)
+static void		check_sign(char **str, int *sign, int *i)
 {
-	if (str[0][0] == '-')
+	if (str[0][*i] == '-')
 	{
 		sign[0] = -1;
-		str[0]++;
+		(*i)++;
 	}
-	else if (str[0][0] == '+')
+	else if (str[0][*i] == '+')
 	{
 		sign[0] = 1;
-		str[0]++;
+		(*i)++;
 	}
 }
 
@@ -97,7 +97,7 @@ long double		ft_strtold10(const char *str, char **endnum)
 	res = 0.0;
 	while (ft_isspace(str[i]))
 		i++;
-	check_sign((char**)&str, &sign);
+	check_sign((char**)&str, &sign, &i);
 	if (ft_isdigit(str[i]))
 		ft_get_ldbl(str, &i, &res);
 	ft_get_exp(str, &i, &exp);
