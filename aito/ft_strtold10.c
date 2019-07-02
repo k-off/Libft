@@ -105,6 +105,7 @@ long double		ft_strtold10(const char *str, char **endnum)
 	if (endnum)
 		*endnum = (char*)&str[i];
 	if (sign < 0)
-		return (-res);
+		res = -res;
+	sign = 1;
 	return (res);
 }
