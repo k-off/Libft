@@ -95,6 +95,7 @@ long double		ft_strtold10(const char *str, char **endnum)
 
 	i = 0;
 	res = 0.0;
+	sign = 1;
 	while (ft_isspace(str[i]))
 		i++;
 	check_sign((char**)&str, &sign, &i);
@@ -106,6 +107,5 @@ long double		ft_strtold10(const char *str, char **endnum)
 		*endnum = (char*)&str[i];
 	if (sign < 0)
 		res = -res;
-	sign = 1;
 	return (res);
 }
