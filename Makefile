@@ -34,7 +34,8 @@ SRCS = ./mem/ft_bzero.c ./mem/ft_memalloc.c ./mem/ft_memccpy.c  \
 ./chck/ft_str_is_numeric.c ./chck/ft_str_is_printable.c \
 ./chck/ft_str_is_uppercase.c \
 ./aito/ft_atoi.c ./aito/ft_itoa_base.c ./aito/ft_itoa.c ./aito/ft_ldtoa.c \
-./aito/ft_strtold10.c ./aito/ft_strtoll.c \
+./aito/ft_strtold10.c ./aito/ft_strtoll.c ./aito/ft_lltoa_base.c \
+./aito/ft_ulltoa_base.c \
 ./lst/ft_lstadd.c ./lst/ft_lstappend.c ./lst/ft_lstdel.c \
 ./lst/ft_lstdelone.c ./lst/ft_lstiter.c ./lst/ft_lstmap.c ./lst/ft_lstnew.c \
 ./inpout/ft_putchar_fd.c ./inpout/ft_putchar.c ./inpout/ft_putendl_fd.c \
@@ -68,7 +69,8 @@ ft_str_is_alpha.o ft_str_is_lowercase.o \
 ft_str_is_numeric.o ft_str_is_printable.o \
 ft_str_is_uppercase.o \
 ft_atoi.o ft_itoa_base.o ft_itoa.o ft_ldtoa.o \
-ft_strtold10.o ft_strtoll.o \
+ft_strtold10.o ft_strtoll.o ft_lltoa_base.o \
+ft_ulltoa_base.o \
 ft_lstadd.o ft_lstappend.o ft_lstdel.o ft_lstdelone.o \
 ft_lstiter.o ft_lstmap.o ft_lstnew.o \
 ft_putchar_fd.o ft_putchar.o ft_putendl_fd.o \
