@@ -20,6 +20,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include "ldtoa.h"
 
 typedef struct			s_gnl_list
 {
