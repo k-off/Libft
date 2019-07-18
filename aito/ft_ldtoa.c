@@ -97,9 +97,9 @@ static char	*null_str(long double n, int precision)
 	char	*tmp;
 
 	tmp = 0;
-	if ((precision == 0 && 1 / n < 0) || n > -0.5)
+	if (precision == 0 && 1 / n < 0)
 		return (ft_strdup("-0"));
-	if ((precision == 0 && n == 0) || n < 0.5)
+	if (precision == 0)
 		return (ft_strdup("0"));
 	if (1 / n < 0)
 		tmp = ft_strdup("-0.");
