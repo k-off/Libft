@@ -13,9 +13,9 @@
 #ifndef __LDTOA_H
 # define __LDTOA_H
 
-#include "libft.h"
-#include <limits.h>
-#include <float.h>
+# include "libft.h"
+# include <limits.h>
+# include <float.h>
 
 void		init(long double *n, int *isneg, int *exp, int *prec);
 void		prepare_number(long double n, int exp, long double (*tmp)[]);

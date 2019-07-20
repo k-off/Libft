@@ -10,7 +10,7 @@
 #                                                                              #
 #******************************************************************************#
 
-NAME = libft.a
+NAME = libftprintf.a
 SRCS = ./mem/ft_bzero.c ./mem/ft_memalloc.c ./mem/ft_memccpy.c  \
 ./mem/ft_memchr.c ./mem/ft_memcmp.c ./mem/ft_memcpy.c ./mem/ft_memdel.c \
 ./mem/ft_memdup.c ./mem/ft_memmove.c ./mem/ft_memmove.c ./mem/ft_memmove.c \
@@ -42,7 +42,10 @@ SRCS = ./mem/ft_bzero.c ./mem/ft_memalloc.c ./mem/ft_memccpy.c  \
 ./inpout/ft_putendl.c ./inpout/ft_putnbr_fd.c ./inpout/ft_putnbr.c \
 ./inpout/ft_putnstr_fd.c ./inpout/ft_putnstr.c ./inpout/ft_putstr_fd.c \
 ./inpout/ft_putstr.c ./inpout/ft_readfile_fd.c ./inpout/ft_readfile_name.c \
-./inpout/get_next_line.c
+./inpout/get_next_line.c \
+./printf/conv_handlers.c ./printf/conversions.c ./printf/ft_printf.c \
+./printf/get_data.c ./printf/get_utils.c ./printf/printf_utils.c \
+./printf/conv_utils.c
 
 MKOBJ = @gcc -c -Wall -Wextra -Werror
 HDRS = -I .
@@ -77,7 +80,11 @@ ft_putchar_fd.o ft_putchar.o ft_putendl_fd.o \
 ft_putendl.o ft_putnbr_fd.o ft_putnbr.o \
 ft_putnstr_fd.o ft_putnstr.o ft_putstr_fd.o \
 ft_putstr.o ft_readfile_fd.o ft_readfile_name.o \
-get_next_line.o
+get_next_line.o \
+conv_handlers.o conversions.o ft_printf.o \
+get_data.o get_utils.o printf_utils.o \
+conv_utils.o
+
 
 MKLIB = @ar -rc
 
