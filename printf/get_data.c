@@ -70,10 +70,19 @@ static int	get_data(t_data **data, const char *s, va_list ap)
 	i = 0;
 	data[0]->no_precision = 0;
 	while (!(s[i] == 0 || is_conversion(s[i])))
-		flags_1(*data, s, &i);
+		flags_1(*data, s, &i, ap);
 	if (s[i] == 0)
 		return (-1);
 	convert_to_data(*data, ap, s[i]);
+	if (data[0]->precision <= 0 && data[0]->conversion != 's')
+		data[0]->precision = 0;
+	if ((data[0]->precision || (data[0]->uld > 0 && data[0]->uld < 65536))
+		&& data[0]->conversion == 'p')
+	{
+		data[0]->conversion = 'x';
+		data[0]->pointer_precision = 1;
+		data[0]->hash = 1;
+	}
 	i++;
 	if (s[i] == 0)
 		return (1);

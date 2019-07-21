@@ -32,6 +32,7 @@ typedef struct			s_data
 	long long			length;
 	long long			precision;
 	char				no_precision;
+	char				pointer_precision;
 	char				hh;
 	char				h;
 	char				l;
@@ -50,7 +51,8 @@ typedef struct			s_data
 void					check_pointer(char **s, char conv,
 									unsigned long long val);
 void					fill_str(char *s, char c, long long len);
-void					flags_1(t_data *data, const char *s, int *i);
+void					flags_1(t_data *data, const char *s, int *i
+								, va_list ap);
 void					free_data(t_data **data);
 int						get_string(t_data **data, const char *s, va_list ap);
 void					handle_hash(t_data *data);

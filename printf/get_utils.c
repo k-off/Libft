@@ -12,28 +12,52 @@
 
 #include "ft_printf.h"
 
-static void	get_precision(t_data *data, const char *s, int *i)
+static void	get_precision(t_data *data, const char *s, int *i, va_list ap)
 {
-	data->precision = ft_atoi(&s[*i]);
-	if (data->precision <= 0)
+	if (s[*i] == '*')
 	{
-		data->precision = 0;
-		data->no_precision = -1;
+		data->precision = (long long)va_arg(ap, int);
 	}
-	while (ft_isdigit(s[*i]))
+	else
+	{
+		data->precision = ft_atoi(&s[*i]);
+		while (ft_isdigit(s[*i]))
+			(*i)++;
+		if (data->precision <= 0)
+		{
+			data->precision = 0;
+			data->no_precision = -1;
+			if (s[*i] == '*')
+				data->no_precision = 1;
+		}
+	}
+	while (s[*i] == '*')
 		(*i)++;
 }
 
-static void	get_width(t_data *data, const char *s, int *i)
+static void	get_width(t_data *data, const char *s, int *i, va_list ap)
 {
-	data->width = ft_atoi(&s[*i]);
+	if (s[*i] == '*')
+	{
+		data->width = (long long)va_arg(ap, int);
+		if (data->width < 0)
+			data->minus = 1;
+		if (data->width < 0)
+			data->width = -data->width;
+	}
+	else
+	{
+		data->width = ft_atoi(&s[*i]);
+		while (ft_isdigit(s[*i]))
+			(*i)++;
+	}
 	if (data->width < 0)
 		data->width = 0;
-	while (ft_isdigit(s[*i]))
+	while (s[*i] == '*')
 		(*i)++;
 }
 
-static void	flags_2(t_data *data, const char *s, int *i)
+static void	flags_2(t_data *data, const char *s, int *i, va_list ap)
 {
 	if ((s[*i] == 'h' && s[*i + 1] == 'h')
 		|| (s[*i] == 'l' && s[*i + 1] == 'l'))
@@ -42,18 +66,18 @@ static void	flags_2(t_data *data, const char *s, int *i)
 	{
 		data->dot = 1;
 		(*i)++;
-		if (ft_isdigit(s[*i]))
-			get_precision(data, s, i);
+		if (ft_isdigit(s[*i]) || s[*i] == '*')
+			get_precision(data, s, i, ap);
 		else
 			data->no_precision = -1;
 	}
-	else if (s[*i] != 0 && ft_isdigit(s[*i]))
-		get_width(data, s, i);
+	else if (s[*i] != 0 && (ft_isdigit(s[*i]) || s[*i] == '*'))
+		get_width(data, s, i, ap);
 	else
 		(*i)++;
 }
 
-void		flags_1(t_data *data, const char *s, int *i)
+void		flags_1(t_data *data, const char *s, int *i, va_list ap)
 {
 	if (s[*i] == 'h' && s[*i + 1] == 'h')
 		data->hh = 1;
@@ -75,5 +99,5 @@ void		flags_1(t_data *data, const char *s, int *i)
 		data->plus = 1;
 	else if (s[*i] == ' ')
 		data->space = 1;
-	flags_2(data, s, i);
+	flags_2(data, s, i, ap);
 }

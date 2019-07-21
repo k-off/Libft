@@ -58,7 +58,7 @@ static char	*get_value(long double n[], int exp, int pr)
 			n[1] = (uintmax_t)(n[1] / 10);
 		}
 	}
-	if (n[0] > 0.5 && pr < 1)
+	if (n[0] >= 0.5 && pr < 1)
 		return (round_up(s[1]));
 	if (pr > 0)
 		s[0] = ft_strjoin(s[1], ".");
@@ -87,7 +87,7 @@ static char	*set_decimal(long double n[], int exp, int pr)
 	s[0] = ft_strjoin(s[1], s[2]);
 	free(s[1]);
 	free(s[2]);
-	if (n[0] > 0.5)
+	if (n[0] >= 1.0 / 2)
 		return (round_up(s[0]));
 	return (s[0]);
 }

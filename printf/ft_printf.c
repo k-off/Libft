@@ -12,12 +12,28 @@
 
 #include "ft_printf.h"
 
+static int	check_inf_nan(t_data *data)
+{
+	if (data->llf != data->llf)
+		data->s = ft_strdup("nan");
+	else if (data->llf > LDBL_MAX)
+		data->s = ft_strdup("inf");
+	else if (data->llf < -LDBL_MAX)
+		data->s = ft_strdup("-inf");
+	if (data->llf != data->llf || data->llf > LDBL_MAX
+		|| data->llf < -LDBL_MAX)
+		return (1);
+	return (0);
+}
+
 static void	float_convert(t_data *data)
 {
 	int		prec;
 
 	prec = data->no_precision;
-	if (data->lll)
+	if (check_inf_nan(data))
+		data->print = data->s;
+	else if (data->lll)
 		data->s = ft_ldtoa(data->llf, (int)data->precision + prec);
 	else if (data->l)
 		data->s = ft_ldtoa((double)data->llf, (int)data->precision + prec);
@@ -25,6 +41,7 @@ static void	float_convert(t_data *data)
 		data->s = ft_ldtoa(data->llf, (int)data->precision + prec);
 	data->print = data->s;
 	data->length = ft_strlen(data->s);
+	handle_space_plus(data);
 	handle_width(data);
 }
 

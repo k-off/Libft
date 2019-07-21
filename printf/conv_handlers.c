@@ -52,7 +52,7 @@ void	handle_width(t_data *data)
 			c = ' ';
 		fill_str(t, c, diff);
 		if ((data->s[0] == '-' || data->s[0] == '+' || data->s[0] == ' ')
-			&& t[0] == '0' && data->conversion == 'd')
+		&& t[0] == '0')
 		{
 			t[0] = data->s[0];
 			data->s[0] = '0';
@@ -89,7 +89,7 @@ void	handle_hash(t_data *data)
 	char *tmp;
 
 	tmp = "";
-	if (data->uld > 0)
+	if (data->uld > 0 || data->pointer_precision)
 	{
 		if ((data->hash && data->conversion == 'x') || data->conversion == 'p')
 			tmp = "0x\0";
