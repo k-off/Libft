@@ -34,16 +34,14 @@ static void		check_base(char **str, int *base)
 
 static void		check_sign(char **str, int *sign, int *base)
 {
+	sign[0] = 1;
 	if (str[0][0] == '-')
 	{
 		sign[0] = -1;
 		str[0]++;
 	}
 	else if (str[0][0] == '+')
-	{
-		sign[0] = 1;
 		str[0]++;
-	}
 	check_base(str, base);
 }
 
