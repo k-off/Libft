@@ -17,7 +17,7 @@ static char	*round_up(char *s)
 	size_t		len;
 	char		*tmp;
 	char		c;
-	
+
 	len = ft_strlen(s);
 	c = s[0];
 	while (len > 0)
@@ -43,9 +43,10 @@ static char	*get_value(long double n[], int exp, int pr)
 {
 	char	*s[2];
 
-	s[1] = (char*)ft_memalloc(sizeof(char) * exp + 1);
 	if (!(n[1] > 0))
-		s[1] = ft_strdup("0");
+		s[1] = ft_strdup("0\0");
+	else
+		s[1] = (char*)ft_memalloc(sizeof(char) * exp + 1);
 	while (exp >= 0)
 	{
 		exp--;
@@ -57,7 +58,7 @@ static char	*get_value(long double n[], int exp, int pr)
 			n[1] = (uintmax_t)(n[1] / 10);
 		}
 	}
-	if (n[0] > 0.5 && pr < 1)
+	if (n[0] >= 0.5 && pr < 1)
 		return (round_up(s[1]));
 	if (pr > 0)
 		s[0] = ft_strjoin(s[1], ".");
@@ -86,7 +87,7 @@ static char	*set_decimal(long double n[], int exp, int pr)
 	s[0] = ft_strjoin(s[1], s[2]);
 	free(s[1]);
 	free(s[2]);
-	if (n[0] > 0.5)
+	if (n[0] >= 1.0 / 2)
 		return (round_up(s[0]));
 	return (s[0]);
 }
@@ -127,7 +128,7 @@ char		*ft_ldtoa(long double n, int precision)
 	init(&n, &isneg, &exponent, &precision);
 	prepare_number(n, exponent, &tmp);
 	if ((exponent < 0 && exponent < -precision) || n == 0)
-		return (null_str(n,  precision));
+		return (null_str(n, precision));
 	tmp_s = set_decimal(tmp, exponent, precision);
 	if (isneg < 0)
 		str = ft_strjoin("-", tmp_s);
