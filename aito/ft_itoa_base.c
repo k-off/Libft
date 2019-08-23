@@ -12,47 +12,14 @@
 
 #include "libft.h"
 
-static char	*ft_remal(char *str, int isneg)
-{
-	int		i;
-	char	*res;
-
-	res = 0;
-	if (isneg < 0)
-		*str = '-';
-	while (!(*str == 45 || (*str > 47 && *str < 58) ||
-		(*str > 64 && *str < 71)))
-		str++;
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	res = ft_strnew(i);
-	if (res != NULL)
-		return (ft_strcpy(res, str));
-	return (0);
-}
-
-static void	ft_check_sign(long int *n, int base, int *isneg)
-{
-	*isneg = 1;
-	if (*n < 0)
-	{
-		if (base == 10)
-			*isneg = -1;
-		*n = -(*n);
-	}
-}
-
-char		*ft_itoa_base(long int n, int base)
+char		*ft_utoa_base(unsigned long n, int base, int is_upper)
 {
 	char	str[33];
 	char	*tmp;
-	int		isneg;
-	char	*xnbrs;
+	char	*xnbrs[2];
 
-	xnbrs = "0123456789ABCDEF";
-	n = (int)n;
-	ft_check_sign(&n, base, &isneg);
+	xnbrs[0] = "0123456789abcdefghijklmnopqrstuvwxyz";
+	xnbrs[1] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	str[32] = '\0';
 	tmp = &str[31];
 	if (n == 0)
@@ -60,11 +27,32 @@ char		*ft_itoa_base(long int n, int base)
 		*tmp = '0';
 		tmp--;
 	}
-	while (n > 0)
+	while (n != 0)
 	{
-		*tmp = xnbrs[n % base];
+		*tmp = xnbrs[is_upper][n % base];
 		tmp--;
 		n /= base;
 	}
-	return (ft_remal(tmp, isneg));
+	tmp++;
+	return (ft_strdup(tmp));
+}
+
+char		*ft_itoa_base(long n, int base, int is_upper)
+{
+	char	minus;
+	char	*s;
+	char	*ret;
+
+	if (n < 0)
+	{
+		minus = '-';
+		s = ft_utoa_base(-n, base, is_upper);
+		if (base == 10)
+			ret = ft_strjoin(&minus, s);
+		else
+			ret = ft_strdup(s);
+		free(s);
+		return (ret);
+	}
+	return (ft_utoa_base(n, base, is_upper));
 }

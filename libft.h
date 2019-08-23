@@ -120,14 +120,15 @@ int						ft_str_is_numeric(char *str);
 int						ft_str_is_printable(char *str);
 int						ft_str_is_uppercase(char *str);
 int						ft_atoi(const char *str);
-char					*ft_itoa_base(long int n, int base);
+char					*ft_itoa_base(long n, int base, int is_upper);
 char					*ft_itoa(long int n);
+char					*ft_utoa_base(unsigned long n, int base, int is_upper);
 char					*ft_lltoa_base(long long n, int base, int is_upper);
+char					*ft_ulltoa_base(unsigned long long n, int base,
+										int is_upper);
 char					*ft_ldtoa(long double num, int prec);
 long double				ft_strtold10(const char *str, char **endnum);
 long long int			ft_strtoll(const char *str, char **endptr, int base);
-char					*ft_ulltoa_base(unsigned long long n, int base,
-										int is_upper);
 void					ft_lstadd(t_list **alst, t_list *new);
 void					ft_lstappend(t_list **alst, t_list *new);
 void					ft_lstdel(t_list **alst, void (*del)(void *, size_t));

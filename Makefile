@@ -10,7 +10,7 @@
 #                                                                              #
 #******************************************************************************#
 
-NAME = libftprintf.a
+NAME = libft.a
 SRCS = ./mem/ft_bzero.c ./mem/ft_memalloc.c ./mem/ft_memccpy.c  \
 ./mem/ft_memchr.c ./mem/ft_memcmp.c ./mem/ft_memcpy.c ./mem/ft_memdel.c \
 ./mem/ft_memdup.c ./mem/ft_memmove.c ./mem/ft_memmove.c ./mem/ft_memmove.c \

@@ -25,7 +25,7 @@ char		*ft_lltoa_base(long long n, int base, int is_upper)
 		if (base == 10)
 			ret = ft_strjoin(&minus, s);
 		else
-			ret = ft_strjoin("", s);
+			ret = ft_strdup(s);
 		free(s);
 		return (ret);
 	}
