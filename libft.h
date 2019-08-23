@@ -92,6 +92,7 @@ int						ft_strnequ(char const *s1, char const *s2, size_t n);
 char					*ft_strnew(unsigned long int size);
 char					*ft_strnstr(const char *big, const char *ltl,
 									size_t ln);
+char					*ft_strrev(char *s);
 char					*ft_strrchr(const char *s, int c);
 char					**ft_strsplit(char const *s, char c);
 char					*ft_strstr(const char *big, const char *ltl);

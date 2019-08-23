@@ -15,7 +15,7 @@
 int			ft_get_line(char **line, char **lines, int i)
 {
 	int				j;
-	
+
 	j = i;
 	if (i == -1)
 		return (-1);
@@ -45,7 +45,7 @@ int			ft_set_line(int fd, char **lines)
 	char			*tmp;
 	long			r;
 	int				i;
-	
+
 	r = 1;
 	while (r != 0)
 	{
@@ -69,7 +69,7 @@ int			get_next_line(const int fd, char **line)
 {
 	static	char	**lines;
 	int				gl_ret;
-	
+
 	if (fd < 0 || !line || BUFF_SIZE < 1)
 		return (-1);
 	if (!lines)
