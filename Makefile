@@ -25,7 +25,7 @@ SRCS = ./mem/ft_bzero.c ./mem/ft_memalloc.c ./mem/ft_memccpy.c  \
 ./str/ft_strncpy.c ./str/ft_strndup.c ./str/ft_strnequ.c ./str/ft_strnew.c \
 ./str/ft_strnstr.c ./str/ft_strrchr.c ./str/ft_strsplit.c ./str/ft_strstr.c \
 ./str/ft_strsub.c ./str/ft_strtrim.c ./str/ft_strupcase.c ./str/ft_tolower.c \
-./str/ft_toupper.c ft_strrev.c \
+./str/ft_toupper.c ./str/ft_strrev.c \
 ./chck/ft_isalnum.c ./chck/ft_isalpha.c ./chck/ft_isascii.c \
 ./chck/ft_isblanc.c ./chck/ft_iscntrl.c ./chck/ft_isdigit.c \
 ./chck/ft_isgraph.c ./chck/ft_islower.c ./chck/ft_isprint.c \
