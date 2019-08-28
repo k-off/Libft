@@ -25,7 +25,7 @@ SRCS = ./mem/ft_bzero.c ./mem/ft_memalloc.c ./mem/ft_memccpy.c  \
 ./str/ft_strncpy.c ./str/ft_strndup.c ./str/ft_strnequ.c ./str/ft_strnew.c \
 ./str/ft_strnstr.c ./str/ft_strrchr.c ./str/ft_strsplit.c ./str/ft_strstr.c \
 ./str/ft_strsub.c ./str/ft_strtrim.c ./str/ft_strupcase.c ./str/ft_tolower.c \
-./str/ft_toupper.c ./str/ft_strrev.c \
+./str/ft_toupper.c ./str/ft_strrev.c ./str/ft_strsplit_whitespace.c \
 ./chck/ft_isalnum.c ./chck/ft_isalpha.c ./chck/ft_isascii.c \
 ./chck/ft_isblanc.c ./chck/ft_iscntrl.c ./chck/ft_isdigit.c \
 ./chck/ft_isgraph.c ./chck/ft_islower.c ./chck/ft_isprint.c \
@@ -64,7 +64,7 @@ ft_strncasecmp.o ft_strncat.o ft_strncmp.o \
 ft_strncpy.o ft_strndup.o ft_strnequ.o ft_strnew.o \
 ft_strnstr.o ft_strrchr.o ft_strsplit.o ft_strstr.o \
 ft_strsub.o ft_strtrim.o ft_strupcase.o ft_tolower.o \
-ft_toupper.o ft_strrev.o \
+ft_toupper.o ft_strrev.o ft_strsplit_whitespace.o \
 ft_isalnum.o ft_isalpha.o ft_isascii.o \
 ft_isblanc.o ft_iscntrl.o ft_isdigit.o \
 ft_isgraph.o ft_islower.o ft_isprint.o \
