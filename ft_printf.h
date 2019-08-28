@@ -65,7 +65,9 @@ void					hex_convert(t_data *data);
 void					integer_convert(t_data *data);
 void					oct_convert(t_data *data);
 void					print_data(t_data *data, int *d);
+void					print_data_fd(t_data *data, int *d, int fd);
 void					string_convert(t_data *data);
+void					set_output(char **dst, t_data *data, int *d);
 void					unsigned_convert(t_data *data);
 void					width_utils(t_data *data, char **t);
 

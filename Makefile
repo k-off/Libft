@@ -45,7 +45,7 @@ SRCS = ./mem/ft_bzero.c ./mem/ft_memalloc.c ./mem/ft_memccpy.c  \
 ./inpout/get_next_line.c \
 ./printf/conv_handlers.c ./printf/conversions.c ./printf/ft_printf.c \
 ./printf/get_data.c ./printf/get_utils.c ./printf/printf_utils.c \
-./printf/conv_utils.c
+./printf/conv_utils.c ./printf/sprintf_utils.c ./printf/ft_sprintf.c
 
 MKOBJ = @gcc -c -Wall -Wextra -Werror
 HDRS = -I .
@@ -83,7 +83,7 @@ ft_putstr.o ft_readfile_fd.o ft_readfile_name.o \
 get_next_line.o \
 conv_handlers.o conversions.o ft_printf.o \
 get_data.o get_utils.o printf_utils.o \
-conv_utils.o
+conv_utils.o sprintf_utils.o ft_sprintf.o
 
 
 MKLIB = @ar -rc

@@ -138,6 +138,8 @@ void					ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list					*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list					*ft_lstnew(void const *content, size_t content_size);
 int						ft_printf(const char *s, ...);
+int						ft_printf_fd(int fd, const char *s, ...);
+int						ft_sprintf(char **dst, const char *s, ...);
 void					ft_putchar_fd(int c, int fd);
 void					ft_putchar(char c);
 void					ft_putendl_fd(char const *s, int fd);
